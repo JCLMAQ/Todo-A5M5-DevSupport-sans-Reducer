@@ -20,25 +20,25 @@ export class TodoService {
   }
 
   async getAll(opts: {
-    pageSize: number;
-    start: number;
-    filter?: string;
-    params?: (string)[];
-    orderBy?: string
-  } = {
-    pageSize: 10,
-    start: 0
-  }): Promise<{
-    list: ITodo[];
-    count: number;
-  }> {
-    const Todo = await this.getClass();
-    const res = await Todo.query(opts);
+      pageSize: number;
+      start: number;
+      filter?: string;
+      params?: (string)[];
+      orderBy?: string
+    } = {
+      pageSize: 10,
+      start: 0
+    }): Promise<{
+      list: ITodo[];
+      count: number;
+    }> {
+      const Todo = await this.getClass();
+      const res = await Todo.query(opts);
 
-    return {
-      list: res.entities,
-      count: res._count
-    };
+      return {
+        list: res.entities,
+        count: res._count
+      };
   }
 
   remove(todo): Promise<any> {
