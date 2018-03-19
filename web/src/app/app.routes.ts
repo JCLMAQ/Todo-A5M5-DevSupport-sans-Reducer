@@ -4,6 +4,7 @@ import { ModuleWithProviders, Provider } from "@angular/core";
 import { HomeComponent } from "./home/home.component";
 import { TodoDetailsComponent } from "./todo-details/todo-details.component";
 import { TodoListComponent } from "./todo-list/todo-list.component";
+import { UsersComponent } from "./users/users.component";
 
 const APP_ROUTES: Routes = [{
   path: "",
@@ -20,6 +21,9 @@ const APP_ROUTES: Routes = [{
 }, {
   path: "todos/:id/view",
   component: TodoDetailsComponent
+}, {
+  path: "users",
+  component: UsersComponent
 }];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [];

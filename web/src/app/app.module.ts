@@ -3,25 +3,28 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
-import { MaterialModule } from './shared/material.module';
 
+import { UsersComponent } from './users/users.component';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { HomeComponent } from './home/home.component';
 
 import { APP_ROUTING, APP_ROUTING_PROVIDERS } from "./app.routes";
 
 import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
-import { ConfirmComponent } from './shared/confirm/confirm.component';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoDetailsComponent,
+    UsersComponent,
     HomeComponent,
     ConfirmComponent
   ],
@@ -36,7 +39,8 @@ import { ConfirmComponent } from './shared/confirm/confirm.component';
   providers: [
     APP_ROUTING_PROVIDERS,
     WakandaService,
-    TodoService
+    TodoService, 
+    UserService
   ],
   bootstrap: [AppComponent]
 })
