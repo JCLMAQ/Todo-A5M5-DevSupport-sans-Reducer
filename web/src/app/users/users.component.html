@@ -10,7 +10,7 @@
         <mat-cell *matCellDef="let one">{{one.fullName}}</mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="userCols"></mat-header-row>
-      <mat-row  [class.selected]="current && row.ID === current.ID"
+      <mat-row  [class.selected]="currentUser && row.ID === currentUser.ID"
                 *matRowDef="let row; columns: userCols;" (click)="select(row)">
       </mat-row>
     </mat-table>

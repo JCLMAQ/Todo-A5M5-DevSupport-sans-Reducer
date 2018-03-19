@@ -11,7 +11,7 @@ import { WakandaService } from '../shared/wakanda.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  current: IUser;
+  currentUser: IUser;
   currentTodo: ITodo;
   usersCount: number;
   todoCount: number;
@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
     const result = await user.getTodos();
     this.todos = new MatTableDataSource(result.entities);
     this.todoCount = result._count;
-    this.current = user;
+    this.currentUser = user;
   }
 
   async onNavigate(p) {
@@ -89,6 +89,6 @@ export class UsersComponent implements OnInit {
 
   async removeTodo(todo: ITodo){
     await todo.removeTodo();
-    this.select(this.current);
+    this.select(this.currentUser);
   }
 }
