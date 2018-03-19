@@ -1,6 +1,6 @@
 export interface ITodo {
   ID: string;
-  dscription: string;
+  description: string;
   done: boolean;
   _key?: string;
   delete(): void;
@@ -10,7 +10,7 @@ export interface ITodo {
 export interface IUser {
   ID: string;
   email: string;
-  username: string;
+  fullName: string;
   group: string;
   _key?: string;
   getTodos(): Promise<{

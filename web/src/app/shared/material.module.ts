@@ -36,8 +36,7 @@ import {
 		  MatSliderModule,
 		  MatSlideToggleModule, 
 		  
-		  MatTableDataSource, 
-		  MatPaginator
+
 } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -77,9 +76,7 @@ const MODULES = [
 		  MatSelectModule,
 		  MatSliderModule,
 		  MatSlideToggleModule,
-		  
-		  MatTableDataSource, 
-		  MatPaginator
+		
 ];
 
 @NgModule({

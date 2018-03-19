@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { MatTableDataSource, MatPaginator, MatSort } from '../shared/material.module';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 import { ITodo } from "../shared/interfaces";
 import { TodoService } from '../shared/todo.service';

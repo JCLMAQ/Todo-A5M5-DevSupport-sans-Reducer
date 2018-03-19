@@ -12,11 +12,7 @@ import { ConfirmComponent } from '../shared/confirm/confirm.component';
 })
 export class TodoDetailsComponent implements OnInit {
   editable: boolean = false;
-  current: ITodo = {
-    ID: "123",
-    description: "Hello",
-    done: false
-  };
+  current: ITodo ;
 
   constructor(
     private route: ActivatedRoute,

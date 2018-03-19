@@ -159,7 +159,7 @@
 					"name": "description",
 					"kind": "storage",
 					"scope": "public",
-					"type": "date",
+					"type": "string",
 					"simpleDate": false
 				},
 				{
@@ -193,11 +193,10 @@
 				},
 				{
 					"name": "user",
+					"kind": "relatedEntities",
 					"scope": "public",
-					"reversePath": false,
-					"path": "assignedTo.userAssigned",
-					"type": "UserTodoAssign",
-					"kind": "relatedEntities"
+					"type": "UserTodoAssigns",
+					"path": "assignedTo.userAssigned"
 				}
 			],
 			"events": [
@@ -295,7 +294,7 @@
 		{
 			"name": "User",
 			"className": "User",
-			"collectionName": "UserCollection",
+			"collectionName": "Users",
 			"scope": "public",
 			"attributes": [
 				{
@@ -316,7 +315,7 @@
 				},
 				{
 					"name": "password",
-					"kind": "calculated",
+					"kind": "storage",
 					"scope": "public",
 					"type": "string",
 					"scriptKind": "javascript"
@@ -374,7 +373,7 @@
 		{
 			"name": "UserTodoAssign",
 			"className": "UserTodoAssign",
-			"collectionName": "UserTodoAssignCollection",
+			"collectionName": "UserTodoAssigns",
 			"scope": "public",
 			"extends": "User",
 			"attributes": [
@@ -405,5 +404,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

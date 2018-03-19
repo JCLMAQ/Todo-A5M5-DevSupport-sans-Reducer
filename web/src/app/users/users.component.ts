@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { IUser, ITodo } from '../shared/interfaces';
-import { MatTableDataSource, MatPaginator } from '../shared/material.module';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { TodoService } from '../shared/todo.service';
 import { WakandaService } from '../shared/wakanda.service';
 
@@ -15,23 +15,23 @@ export class UsersComponent implements OnInit {
   currentTodo: ITodo;
   usersCount: number;
   todoCount: number;
-  userCols: string[] = ['name', 'username'];
+  userCols: string[] = ['email', 'fullname'];
   users: MatTableDataSource<IUser> = new MatTableDataSource<IUser>([]);
-  todoCols: string[] = ['name', 'done', 'actions'];
-  todoCols1: string[] = ['name', 'done'];
+  todoCols: string[] = ['description', 'done', 'actions'];
+  todoCols1: string[] = ['description', 'done'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   todos1: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
 
   @ViewChild(MatPaginator) usersPaginator: MatPaginator;
 
   constructor(
-    private service: UserService,
+    private usersService: UserService,
     private todosService: TodoService,
     private wakanda: WakandaService
   ) { }
 
   async ngOnInit() {
-    const result = await this.service.getAll();
+    const result = await this.usersService.getAll();
     const todos = await this.todosService.getAll({
       pageSize: 20,
       start: 0
@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
   }
 
   async onNavigate(p) {
-    const result = await this.service.getAll({
+    const result = await this.usersService.getAll({
       pageSize: p.pageSize,
       start: p.pageSize*p.pageIndex
     });

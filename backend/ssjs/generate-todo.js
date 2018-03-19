@@ -1,8 +1,9 @@
-const ordinal = require("ordinal");
+
 
 for(let i = 0; i<50; i += 1){
   new ds.Todo({
-    description: `${ordinal(i+1)} Todo...`,
+    description: (i+1)+' Todo...',
     done: false
   }).save();
 }
+  

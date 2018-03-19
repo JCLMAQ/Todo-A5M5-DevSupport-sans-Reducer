@@ -6,19 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
-
 import { UsersComponent } from './users/users.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
-import { HomeComponent } from './home/home.component';
+
 
 import { APP_ROUTING, APP_ROUTING_PROVIDERS } from "./app.routes";
 
 import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
-import { ConfirmComponent } from './shared/confirm/confirm.component';
-import { UsersComponent } from './users/users/users.component';
+import {UserService} from './shared/user.service';
 
 @NgModule({
   declarations: [
