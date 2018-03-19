@@ -159,7 +159,8 @@
 					"name": "description",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"type": "date",
+					"simpleDate": false
 				},
 				{
 					"name": "done",

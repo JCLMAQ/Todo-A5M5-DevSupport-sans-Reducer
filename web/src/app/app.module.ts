@@ -17,7 +17,8 @@ import { APP_ROUTING, APP_ROUTING_PROVIDERS } from "./app.routes";
 
 import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
-import { UserService } from './shared/user.service';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
+import { UsersComponent } from './users/users/users.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserService } from './shared/user.service';
     TodoDetailsComponent,
     UsersComponent,
     HomeComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
