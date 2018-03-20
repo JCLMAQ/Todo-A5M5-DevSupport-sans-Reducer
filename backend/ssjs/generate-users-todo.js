@@ -24,10 +24,11 @@
       });
       t.save();
 
-    /*  new ds.TodoUser({
-        userAssigned: t,
-        todoAssigned: u
+	new ds.TodoUser({
+        userAssigned: u.ID,
+        todoAssigned: t.ID,
+        comments: "first try"
       }).save();
-      */
+
     } 
   }

@@ -159,8 +159,7 @@
 					"name": "description",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string",
-					"simpleDate": false
+					"type": "string"
 				},
 				{
 					"name": "done",
@@ -317,8 +316,7 @@
 					"name": "password",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string",
-					"scriptKind": "javascript"
+					"type": "string"
 				},
 				{
 					"name": "HA1Key",
@@ -395,15 +393,14 @@
 			],
 			"methods": [
 				{
-					"name": "getTodo",
+					"name": "getTodos",
 					"applyTo": "entity",
 					"scope": "public",
-					"from": "$mainModel.UserTodoAssign.entityMethods.getTodo",
+					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }

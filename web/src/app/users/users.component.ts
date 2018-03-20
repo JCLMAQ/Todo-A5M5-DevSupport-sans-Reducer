@@ -65,10 +65,12 @@ export class UsersComponent implements OnInit {
   }
 
   async affect(user: IUser, todo: ITodo){
+    debugger;
     const ds = await this.wakanda.catalog;
     const relation = ds.TodoUser.create();
     relation.userAssign = user;
     relation.todoAssign = todo;
+    relation.comments = "Second Try."
     relation.save();
   }
 

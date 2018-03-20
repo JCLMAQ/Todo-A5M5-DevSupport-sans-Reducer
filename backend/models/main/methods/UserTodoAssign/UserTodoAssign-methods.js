@@ -1,4 +1,4 @@
 
-(model.UserTodoAssign.entityMethods.getTodo = function() {
-	return this.user_todos.todo;
+(model.UserTodoAssign.entityMethods.getTodos = function() {
+	return this.assignedTodos.todoAssigned;
 }).scope = 'public';
