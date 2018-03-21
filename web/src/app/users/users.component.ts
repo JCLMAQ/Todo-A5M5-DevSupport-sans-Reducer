@@ -91,21 +91,22 @@ export class UsersComponent implements OnInit {
     this.select(user);
   }
 
+
   async removeTodo(user: IUser, todo: ITodo):
-     Promise<any> {
-    let dialogRef = this.dialog.open(ConfirmComponent, {
-      width: '250px',
-      data: { message: "Would you like to remove definitvely this todo?" }
-    });
-
-    return new Promise((resolve, reject) => {
-      dialogRef.afterClosed().subscribe(async isYes => {
-        if(isYes){
-          await todo.delete();
-        }
-
-        resolve(isYes);
+    Promise<any> {
+      let dialogRef = this.dialog.open(ConfirmComponent, {
+        width: '250px',
+        data: { message: "Would you like to remove definitvely this todo?" }
       });
-    });
+
+      return new Promise((resolve, reject) => {
+        dialogRef.afterClosed().subscribe(async isYes => {
+          if(isYes){
+            await todo.delete();
+          }
+
+          resolve(isYes);
+        });
+      });
   }
 }
