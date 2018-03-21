@@ -4,6 +4,8 @@ import { IUser, ITodo } from '../shared/interfaces';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { TodoService } from '../shared/todo.service';
 import { WakandaService } from '../shared/wakanda.service';
+import { ConfirmComponent } from '../shared/confirm/confirm.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-users',
@@ -27,7 +29,8 @@ export class UsersComponent implements OnInit {
   constructor(
     private usersService: UserService,
     private todosService: TodoService,
-    private wakanda: WakandaService
+    private wakanda: WakandaService,
+    private dialog: MatDialog
   ) { }
 
   async ngOnInit() {
@@ -65,19 +68,19 @@ export class UsersComponent implements OnInit {
   }
 
   async affect(user: IUser, todo: ITodo){
-    debugger;
     const ds = await this.wakanda.catalog;
     const relation = ds.TodoUser.create();
     relation.userAssigned = user;
     relation.todoAssigned = todo;
     relation.comments = "Web assign Try."
     relation.save();
+    this.select(user);
   }
 
   async removeFromUser(user: IUser, todo: ITodo){
     const ds = await this.wakanda.catalog;
     const relation = await ds.TodoUser.query({
-      filter: 'user.ID == :1 && todo.ID == :2',
+      filter: 'userAssigned.ID == :1 && todoAssigned.ID == :2',
       params: [user.ID, todo.ID],
       pageSize: 1
     });
@@ -85,12 +88,24 @@ export class UsersComponent implements OnInit {
     if(relation.entities.length){
       await relation.entities[0].delete();
     }
-
     this.select(user);
   }
 
-  async removeTodo(todo: ITodo){
-    await todo.removeTodo();
-    this.select(this.currentUser);
+  async removeTodo(user: IUser, todo: ITodo):
+     Promise<any> {
+    let dialogRef = this.dialog.open(ConfirmComponent, {
+      width: '250px',
+      data: { message: "Would you like to remove definitvely this todo?" }
+    });
+
+    return new Promise((resolve, reject) => {
+      dialogRef.afterClosed().subscribe(async isYes => {
+        if(isYes){
+          await todo.delete();
+        }
+
+        resolve(isYes);
+      });
+    });
   }
 }
