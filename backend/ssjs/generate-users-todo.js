@@ -1,5 +1,5 @@
 
-  for(let i = 0; i<3; i++){
+  for(let i = 0; i<2; i++){
     let u = new ds.User({
      email: `User ${i + 1}`,
       fullName: `user${i+1}`,
@@ -27,7 +27,7 @@
 	new ds.TodoUser({
         userAssigned: u.ID,
         todoAssigned: t.ID,
-        comments: "first try"
+        comments: "second try"
       }).save();
 
     } 

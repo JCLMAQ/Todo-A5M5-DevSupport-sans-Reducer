@@ -68,9 +68,9 @@ export class UsersComponent implements OnInit {
     debugger;
     const ds = await this.wakanda.catalog;
     const relation = ds.TodoUser.create();
-    relation.userAssign = user;
-    relation.todoAssign = todo;
-    relation.comments = "Second Try."
+    relation.userAssigned = user;
+    relation.todoAssigned = todo;
+    relation.comments = "Web assign Try."
     relation.save();
   }
 
