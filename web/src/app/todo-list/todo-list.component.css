@@ -12,8 +12,7 @@ mat-row{
 }
 
 mat-card {
-  
-  height: 800px;
+
 }
 
 
@@ -22,9 +21,8 @@ mat-input-container{
   text-align: center;
 }
 
-
 mat-card-title>mat-input-container{
-  width: 450px;
+  width: 600px;
 }
 
 .app-sidenav-filler {
@@ -32,7 +30,7 @@ mat-card-title>mat-input-container{
 }
 mat-drawer {
   width: 500px;
-  height: 800px;
+  height: 600px;
 }
 
 .mat-mini-pos {
@@ -42,3 +40,7 @@ mat-drawer {
 .content-Card {
  height: 800px;
 }
+
+.userlist {
+  height: 300px;
+ }

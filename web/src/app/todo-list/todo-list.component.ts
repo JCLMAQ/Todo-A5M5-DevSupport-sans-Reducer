@@ -2,9 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
-import { ITodo } from "../shared/interfaces";
+import { ITodo, IUser } from "../shared/interfaces";
+
 import { TodoService } from '../shared/todo.service';
+import{ UserService } from '../shared/user.service';
+import { WakandaService } from '../shared/wakanda.service';
+
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,8 +19,15 @@ import { ConfirmComponent } from '../shared/confirm/confirm.component';
 export class TodoListComponent{
   cols: string[] = ['ID', 'description', 'done', 'tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
-  current: ITodo;
-  count: number = 0;
+  currentTodo: ITodo;
+  countTodo: number = 0;
+
+  userCols: string[] = ['fullName', 'actions'];
+  users: MatTableDataSource<IUser> = new MatTableDataSource<IUser>([]);
+  users1: MatTableDataSource<IUser> = new MatTableDataSource<IUser>([]);
+  currentUser:IUser;
+  countUser: number = 0;
+ 
   editable: boolean = false;
   isOpenSidePanel: Boolean = false;
 
@@ -23,7 +35,10 @@ export class TodoListComponent{
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private todoService: TodoService
+    private todoService: TodoService,
+    private usersService: UserService,
+    private wakanda: WakandaService,
+    private dialog: MatDialog
   ) {
     this.refresh();
   }
@@ -47,9 +62,12 @@ export class TodoListComponent{
     this.setData(result);
   }
 
-  select(todo) {
+  async select(todo: ITodo) {
+    const result = await todo.getUsers();
+    this.users = await new MatTableDataSource(result.entities);
+    this.countUser = result._count;
     this.isOpenSidePanel = true;
-    this.current = todo;
+    this.currentTodo = todo;
   }
 
   async remove(todo) {
@@ -79,9 +97,9 @@ export class TodoListComponent{
   cancel(){
     this.editable= false;
 
-    if(this.current && !this.current._key){
+    if(this.currentTodo && !this.currentTodo._key){
       this.isOpenSidePanel = false;
-      this.current = null;
+      this.currentTodo = null;
     } else {
       this.refresh();
     }
@@ -109,7 +127,7 @@ export class TodoListComponent{
 
   async create(todo){
     const Todo = await this.todoService.getClass();
-    this.current = Todo.create();
+    this.currentTodo = Todo.create();
     this.editable = true;
     this.isOpenSidePanel = true;
   }
@@ -119,6 +137,6 @@ export class TodoListComponent{
     count: number;
   }){
     this.todos = new MatTableDataSource<ITodo>(d.list);
-    this.count = d.count;
+    this.countTodo = d.count;
   }
 }
