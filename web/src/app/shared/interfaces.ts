@@ -3,8 +3,13 @@ export interface ITodo {
   description: string;
   done: boolean;
   _key?: string;
+  users?:IUser;
   delete(): void;
   removeTodo(): void;
+  getUsers(): Promise<{
+    entities: IUser[];
+    _count: number;
+  }>;
 }
 
 export interface IUser {

@@ -33,7 +33,7 @@ export class TodoService {
       count: number;
     }> {
       const Todo = await this.getClass();
-      const res = await Todo.query(opts);
+      const res = await Todo.query(opts, {expand: 'users'});
 
       return {
         list: res.entities,

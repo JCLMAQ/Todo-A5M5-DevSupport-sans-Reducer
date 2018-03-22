@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ITodo } from "../shared/interfaces";
+import { ITodo, IUser } from "../shared/interfaces";
+
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
 
@@ -13,6 +14,12 @@ import { ConfirmComponent } from '../shared/confirm/confirm.component';
 export class TodoDetailsComponent implements OnInit {
   editable: boolean = false;
   current: ITodo ;
+  users:IUser ;
+  usersInit = [
+    {fullName: "User ONe"},
+    {fullName: "User Two"},
+  ];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +30,10 @@ export class TodoDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(async p => {
       const Todo = await this.todoService.getClass();
-      this.current = await Todo.find(p.id);
+      this.current = await Todo.find(p.id, {expand: 'users'});
+      debugger;
+     const usersInitbis = this.current.getUsers();
+ //    this.users = this.current.users;
     });
 
     this.route.data.subscribe(d => {

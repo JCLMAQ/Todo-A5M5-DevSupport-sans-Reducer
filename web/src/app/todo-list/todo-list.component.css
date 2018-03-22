@@ -11,6 +11,11 @@ mat-row{
   text-decoration: line-through;
 }
 
+mat-card {
+  
+  height: 800px;
+}
+
 
 mat-card-title,
 mat-input-container{
@@ -27,9 +32,13 @@ mat-card-title>mat-input-container{
 }
 mat-drawer {
   width: 500px;
-  height: 600px;
+  height: 800px;
 }
 
 .mat-mini-pos {
 
+}
+
+.content-Card {
+ height: 800px;
 }

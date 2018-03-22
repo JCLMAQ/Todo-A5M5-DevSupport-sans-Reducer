@@ -7,7 +7,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": false,
+					"pathVisible": true,
 					"position": {
 						"X": 56,
 						"Y": 52
@@ -31,8 +31,8 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 342,
-						"Y": 53
+						"X": 387,
+						"Y": 47
 					}
 				}
 			},
@@ -191,8 +191,9 @@
 					"path": "todoAssigned"
 				},
 				{
-					"name": "user",
+					"name": "users",
 					"kind": "relatedEntities",
+					"matchColumn": "user",
 					"scope": "public",
 					"type": "UserTodoAssigns",
 					"path": "assignedTo.userAssigned"
@@ -201,18 +202,23 @@
 			"events": [
 				{
 					"kind": "init",
-					"from": "$mainModel.Todo.events.init",
-					"userDefined": true
+					"from": "$mainModel.Todo.events.init"
 				}
 			],
 			"methods": [
+				{
+					"name": "getUsers",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Todo.entityMethods.getUsers",
+					"allowedOnHTTPGET": false
+				},
 				{
 					"name": "removeTodo",
 					"applyTo": "entity",
 					"scope": "public",
 					"from": "$mainModel.Todo.entityMethods.removeTodo",
-					"allowedOnHTTPGET": false,
-					"userDefined": true
+					"allowedOnHTTPGET": false
 				}
 			]
 		},
@@ -355,16 +361,14 @@
 					"applyTo": "dataClass",
 					"scope": "public",
 					"from": "$mainModel.User.methods.addUser",
-					"allowedOnHTTPGET": false,
-					"userDefined": true
+					"allowedOnHTTPGET": false
 				},
 				{
 					"name": "validatePassword",
 					"applyTo": "entity",
 					"scope": "publicOnServer",
 					"from": "$mainModel.User.entityMethods.validatePassword",
-					"allowedOnHTTPGET": false,
-					"userDefined": true
+					"allowedOnHTTPGET": false
 				}
 			]
 		},
@@ -397,8 +401,7 @@
 					"applyTo": "entity",
 					"scope": "public",
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
-					"allowedOnHTTPGET": false,
-					"userDefined": true
+					"allowedOnHTTPGET": false
 				}
 			]
 		}
