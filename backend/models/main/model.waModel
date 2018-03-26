@@ -168,19 +168,21 @@
 					"type": "bool"
 				},
 				{
-					"name": "subTodos",
+					"name": "mainTodo",
 					"kind": "relatedEntity",
 					"scope": "public",
 					"type": "Todo",
-					"path": "Todo"
+					"path": "Todo",
+					"matchColumn": "mainTodos, subTodos"
 				},
 				{
-					"name": "mainTodo",
+					"name": "SubTodos",
 					"kind": "relatedEntities",
 					"scope": "public",
 					"type": "Todos",
 					"reversePath": true,
-					"path": "subTodos"
+					"path": "mainTodo",
+					"matchColumn": "mainTodo"
 				},
 				{
 					"name": "assignedTo",
@@ -209,16 +211,18 @@
 				{
 					"name": "getUsers",
 					"applyTo": "entity",
-					"scope": "publicOnServer",
+					"scope": "public",
 					"from": "$mainModel.Todo.entityMethods.getUsers",
-					"allowedOnHTTPGET": false
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				},
 				{
 					"name": "removeTodo",
 					"applyTo": "entity",
 					"scope": "public",
 					"from": "$mainModel.Todo.entityMethods.removeTodo",
-					"allowedOnHTTPGET": false
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				}
 			]
 		},
@@ -361,14 +365,16 @@
 					"applyTo": "dataClass",
 					"scope": "public",
 					"from": "$mainModel.User.methods.addUser",
-					"allowedOnHTTPGET": false
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				},
 				{
 					"name": "validatePassword",
 					"applyTo": "entity",
 					"scope": "publicOnServer",
 					"from": "$mainModel.User.entityMethods.validatePassword",
-					"allowedOnHTTPGET": false
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				}
 			]
 		},
@@ -401,7 +407,8 @@
 					"applyTo": "entity",
 					"scope": "public",
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
-					"allowedOnHTTPGET": false
+					"allowedOnHTTPGET": false,
+					"userDefined": true
 				}
 			]
 		}

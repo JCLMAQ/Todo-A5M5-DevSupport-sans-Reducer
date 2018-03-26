@@ -4,6 +4,8 @@ export interface ITodo {
   done: boolean;
   _key?: string;
   users?:IUser;
+  subTodos? :ITodo;
+  mainTodo? : ITodo;
   delete(): void;
   removeTodo(): void;
   getUsers(): Promise<{
