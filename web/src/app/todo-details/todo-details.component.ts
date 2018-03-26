@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 import { ITodo, IUser } from "../shared/interfaces";
 
@@ -19,6 +21,8 @@ export class TodoDetailsComponent implements OnInit {
     {fullName: "User ONe"},
     {fullName: "User Two"},
   ];
+  toppings = new FormControl();
+  toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
 
   constructor(
@@ -33,7 +37,7 @@ export class TodoDetailsComponent implements OnInit {
       this.current = await Todo.find(p.id, {expand: 'users'});
       debugger;
      const usersInitbis = this.current.getUsers();
- //    this.users = this.current.users;
+    // this.users = this.current.users;
     });
 
     this.route.data.subscribe(d => {

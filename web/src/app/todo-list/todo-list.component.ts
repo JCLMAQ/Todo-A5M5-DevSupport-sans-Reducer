@@ -139,4 +139,18 @@ export class TodoListComponent{
     this.todos = new MatTableDataSource<ITodo>(d.list);
     this.countTodo = d.count;
   }
+
+ async removeFromUser(todo: ITodo, user: IUser){
+    const ds = await this.wakanda.catalog;
+    const relation = await ds.TodoUser.query({
+      filter: 'userAssigned.ID == :1 && todoAssigned.ID == :2',
+      params: [user.ID, todo.ID],
+      pageSize: 1
+    });
+
+    if(relation.entities.length){
+      await relation.entities[0].delete();
+    }
+    this.select(todo);
+  };
 }

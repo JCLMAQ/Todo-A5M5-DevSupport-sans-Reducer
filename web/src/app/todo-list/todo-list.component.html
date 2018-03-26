@@ -1,4 +1,5 @@
-<mat-card>
+<mat-card class = "maincardspace">
+
   <mat-card-title>
     <mat-input-container>
       <input matInput placeholder="Search for a todo" [value]="" (keyup)="search($event.target.value, $event)">
@@ -8,15 +9,17 @@
       Create new
     </button>
   </mat-card-title>
+
   <mat-card-content>
     <!-- Start of the drawer panel -->
-    <mat-drawer-container>
-      <mat-drawer-content>
+    <mat-drawer-container class= "firstcardspace">
+
+      <mat-drawer-content  class= "firstcardspace">
         <button mat-mini-fab color="primary" style="float: right;" (click)="isOpenSidePanel=!isOpenSidePanel">
           <mat-icon *ngIf= "isOpenSidePanel">chevron_left</mat-icon>
           <mat-icon *ngIf= "!isOpenSidePanel">chevron_right</mat-icon>
         </button>
-        <!-- Start of the list -->
+        <!-- Start of the todo list -->
         <mat-table  #todoList [dataSource]="todos"
                     matSort (matSortChange)="onSort()">
 
@@ -60,27 +63,28 @@
           </mat-row>
         </mat-table>
         <mat-paginator #paginator [pageSize]="10" [length]="countTodo" (page)="onNavigate($event)"></mat-paginator>
-        <!-- End of the list -->
       </mat-drawer-content>
+      <!-- End of the todo list -->
+    <!-- Start of the todo item panel -->
       <mat-drawer #drawer [opened]="isOpenSidePanel" mode="side" position="end">
+
       <mat-card *ngIf="currentTodo">
         <mat-card-title>
           <h6>Details of the todo "{{currentTodo.ID}}"</h6>
         </mat-card-title>
-        <mat-card-content>
+        <mat-card-content class = "detailform">
           <!-- Start of the detail form -->
-          <mat-form-field>
-            <input matInput placeholder="ID" type="text" disabled [value]="currentTodo.ID">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Description" type="text" [(ngModel)]="currentTodo.description" [disabled]="!editable">
-          </mat-form-field>
-          <mat-checkbox [(ngModel)]="currentTodo.done" [disabled]="!editable"></mat-checkbox>
+            <mat-form-field>
+              <input matInput placeholder="ID" type="text" disabled [value]="currentTodo.ID">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Description" type="text" [(ngModel)]="currentTodo.description" [disabled]="!editable">
+            </mat-form-field>
+            <mat-checkbox [(ngModel)]="currentTodo.done" [disabled]="!editable"></mat-checkbox>
           <!-- End of the detail form -->
         
-
          <!--Start of the users list -->
-              <mat-card class = 'userlist'>
+              <mat-card class = "userlist">
                 <mat-card-title>
                   <h6>Users concerned</h6>
                 </mat-card-title>

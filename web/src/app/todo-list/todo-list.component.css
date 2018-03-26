@@ -11,11 +11,13 @@ mat-row{
   text-decoration: line-through;
 }
 
-mat-card {
-
+.maincardspace {
+  min-height: 800px;
 }
 
-
+.firstcardspace {
+  min-height: 700px;
+}
 mat-card-title,
 mat-input-container{
   text-align: center;
@@ -29,18 +31,14 @@ mat-card-title>mat-input-container{
   flex: 1 1 auto;
 }
 mat-drawer {
-  width: 500px;
-  height: 600px;
-}
-
-.mat-mini-pos {
-
+  min-width: 500px;
+  min-height: 600px;
 }
 
 .content-Card {
- height: 800px;
+ min-height: 800px;
 }
 
 .userlist {
-  height: 300px;
+  min-height: 400px;
  }
