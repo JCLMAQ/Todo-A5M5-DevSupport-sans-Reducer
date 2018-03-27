@@ -26,3 +26,10 @@ export interface IUser {
   }>;
 }
 
+export interface ITodoType {
+  ID: string;
+  choiceDescription: string;
+  choiceCategory: string;
+  _key?: string;
+  todoTyped: ITodo;
+}

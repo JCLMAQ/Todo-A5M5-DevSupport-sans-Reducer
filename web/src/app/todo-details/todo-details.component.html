@@ -11,12 +11,14 @@
                         [disabled]="!editable">
               </mat-form-field>
               <mat-checkbox [(ngModel)]="current.done" [disabled]="!editable"></mat-checkbox>
+<br />
 
               <mat-form-field>
                 <input  matInput placeholder="Main Todo"
                         type="text" [(ngModel)]="current.mainTodo.description"
                         [disabled]="!editable">
               </mat-form-field>
+<br />
 
   <mat-form-field>
     <mat-select placeholder="Favorite food">
@@ -25,6 +27,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+<br />
 
   <button class="button btn primary" (click)="affect(current, currentTodoList)">
     Affecter la todo comme main todo

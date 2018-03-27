@@ -53,8 +53,8 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 48,
-						"Y": 626
+						"X": 43,
+						"Y": 723
 					}
 				}
 			},
@@ -64,9 +64,20 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 50,
-						"Y": 414
+						"X": 52,
+						"Y": 508
 					}
+				}
+			},
+			"TodoType": {
+				"panelColor": "#D7E3BC",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 402,
+						"Y": 482
+					},
+					"pathVisible": true
 				}
 			}
 		},
@@ -199,6 +210,13 @@
 					"scope": "public",
 					"type": "UserTodoAssigns",
 					"path": "assignedTo.userAssigned"
+				},
+				{
+					"name": "type",
+					"scope": "public",
+					"path": "TodoType",
+					"type": "TodoType",
+					"kind": "relatedEntity"
 				}
 			],
 			"events": [
@@ -409,6 +427,27 @@
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
+				}
+			]
+		},
+		{
+			"collectionName": "TodoTypes",
+			"className": "TodoType",
+			"extends": "Choice",
+			"attributes": [
+				{
+					"name": "todosTyped",
+					"scope": "public",
+					"reversePath": true,
+					"path": "type",
+					"type": "Todos",
+					"kind": "relatedEntities",
+					"matchColumn": "todos"
+				}
+			],
+			"restrictingQuery": [
+				{
+					"queryStatement": "choiceCategory = 'TodoType'"
 				}
 			]
 		}
