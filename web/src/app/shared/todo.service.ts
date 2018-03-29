@@ -19,6 +19,11 @@ export class TodoService {
     return ds.Todo;
   }
 
+  async getTypesClass() {
+    const ds = await this.wakanda.catalog;
+    return ds.TodoType;
+  }
+  
   async getAll(opts: {
       pageSize: number;
       start: number;

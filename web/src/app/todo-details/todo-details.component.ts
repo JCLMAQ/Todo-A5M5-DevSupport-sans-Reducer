@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { ITodo, IUser } from "../shared/interfaces";
+import { ITodo, IUser, ITodoType } from "../shared/interfaces";
 
 import { TodoService } from '../shared/todo.service';
 import { ConfirmComponent } from '../shared/confirm/confirm.component';
@@ -19,14 +19,9 @@ export class TodoDetailsComponent implements OnInit {
   current: ITodo ;
   todoCols1: string[] = ['description', 'done'];
   todos1: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
-  // users:IUser ;
-  // usersInit = [
-    // {fullName: "User ONe"},
-  //   {fullName: "User Two"},
-  // ];
-  // toppings = new FormControl();
-  // toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-
+  users:IUser[];
+  types: ITodoType[] = [];
+  selectedTypeTodo: ITodoType;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,32 +31,35 @@ export class TodoDetailsComponent implements OnInit {
   ) { }
 
  async ngOnInit() {
+
+  // Get all the "types todo" 
+    const TodoType = await this.todoService.getTypesClass();
+    const Todo = await this.todoService.getClass();
+    this.types = (await TodoType.query()).entities;
+  // Based on p witch is the selected Todo in the list, fetch the detail of the todo
     this.route.params.subscribe(async p => {
       const Todo = await this.todoService.getClass();
-  //    const todoexpanded = await Todo.find(p.id, {expand: 'users'});
-      this.current = await Todo.find(p.id, {expand: 'users'});
+      // const todoexpanded = await Todo.find(p.id, {expand: 'users'}); // Expand does not work
+      this.current = await Todo.find(p.id, {select: 'users, mainTodo, type'});
 
-// Contruct list of todos to select for add as main todo
+  // Contruct list of todos to select for add as main todo
       const todos1 = await this.todoService.getAll({
         pageSize: 20,
         start: 0
       });
       this.todos1 = new MatTableDataSource(todos1.list);
 
-// COntruct of the list of users concerned
-    //  debugger;
-   // this.users = this.current.getUsers();
-     this.users = this.current.users;
-
+  // Contruct the list of users concerned
+     this.users = this.current.users.entities;
      const result = await this.current.getUsers();
      const users = result.entities;
      const countUser = result._count;
-
-
     });
 
     this.route.data.subscribe(d => {
       this.editable = d.editable;
+      // Let allow edition or not, withdraw the colomn 'tools' if not editable
+      this.todoCols1 = this.editable? ['description', 'done', 'tools']: ['description', 'done'];
     });
   }
 
@@ -84,12 +82,28 @@ export class TodoDetailsComponent implements OnInit {
     this.editable= false;
   }
 
-  async affect(todoSub: ITodo, todoMain: ITodo){
-    debugger;
+  async affect(todoSub: ITodo, todoMain: ITodo[]){
+    // debugger;
     this.current.subTodos= todoMain;
     this.save(todoSub);
   }
 
+  async makeMain(t: ITodo, current: ITodo) {
+    // To avoid the possibility to be its own main
+    if(!current || !t || t.ID === current.ID){
+      return false;
+    }
+    current.mainTodo = t;
+    await current.save();
+  }
+
+  async setType(current: ITodo, type: ITodoType){
+    if(!current || !type){
+      return false;
+    }
+    current.type = type;
+    await current.save();
+  }
 }
 
 

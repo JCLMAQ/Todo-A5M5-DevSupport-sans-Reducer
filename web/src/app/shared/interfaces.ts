@@ -3,9 +3,14 @@ export interface ITodo {
   description: string;
   done: boolean;
   _key?: string;
-  users?:IUser;
-  subTodos? :ITodo;
+  type: ITodoType;
+  users?:{
+    entities: IUser[];
+    fetch(): Promise<IUser[]>;
+  };
+  subTodos? :ITodo[];
   mainTodo? : ITodo;
+  save(): void;
   delete(): void;
   removeTodo(): void;
   getUsers(): Promise<{
@@ -31,5 +36,8 @@ export interface ITodoType {
   choiceDescription: string;
   choiceCategory: string;
   _key?: string;
-  todoTyped: ITodo;
+  todoTyped:{
+    entities:ITodo[];
+    fetch(): Promise<ITodo[]>;
+  } 
 }
