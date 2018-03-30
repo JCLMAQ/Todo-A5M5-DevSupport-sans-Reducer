@@ -11,9 +11,11 @@
                           [disabled]="!editable">
                 </mat-form-field>
                 <mat-checkbox [(ngModel)]="current.done" [disabled]="!editable"></mat-checkbox>
-  <br />
   
-                <mat-form-field  *ngIf="current.mainTodo">
+               <p> Main todo "{{current.mainTodo?.description}}"</p>
+                <br />
+  
+                <mat-form-field *ngIf="current.mainTodo">
                   <input  matInput placeholder="Main Todo"
                           type="text" [(ngModel)]="current.mainTodo.description"
                           [disabled]="!editable">
@@ -21,7 +23,7 @@
   <br />
   
     <mat-form-field>
-      <mat-select placeholder="Todo Type" [(ngModel)]="selectedType" (selectionChange)="setType(current, $event.value)">
+      <mat-select placeholder="Todo Type" [disabled]="!editable" [(ngModel)]="selectedTypeTodo" (selectionChange)="setType(current, $event.value)">
         <mat-option *ngFor="let type of types" [value]="type">
           {{ type.choiceDescription }}
         </mat-option>
@@ -30,7 +32,7 @@
   
   <br />
   
-    <button class="button btn primary" (click)="affect(current, currentTodoList)">
+    <button class="button btn primary" [disabled]="!editable" (click)="makeMain(currentTodoList, current)">
       Affecter la todo comme main todo
     </button>
   

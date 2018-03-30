@@ -1,4 +1,4 @@
-const types = [
+/* const types = [
   "Todo",
   "Urgent",
   "Jamais",
@@ -12,3 +12,6 @@ for(const t of types){
       choiceDescription: t
     }).save();
 }
+*/
+ds.TodoType.all();
+

@@ -73,18 +73,18 @@
 				"panelColor": "#D7E3BC",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
 						"X": 402,
 						"Y": 482
-					},
-					"pathVisible": true
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceTop": 200,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js"
@@ -151,6 +151,29 @@
 			]
 		},
 		{
+			"name": "TodoType",
+			"className": "TodoType",
+			"collectionName": "TodoTypes",
+			"scope": "public",
+			"extends": "Choice",
+			"restrictingQuery": [
+				{
+					"queryStatement": "choiceCategory = 'TodoType'"
+				}
+			],
+			"attributes": [
+				{
+					"name": "todosTyped",
+					"kind": "relatedEntities",
+					"matchColumn": "todos",
+					"scope": "public",
+					"type": "Todos",
+					"reversePath": true,
+					"path": "type"
+				}
+			]
+		},
+		{
 			"name": "Todo",
 			"className": "Todo",
 			"collectionName": "Todos",
@@ -181,19 +204,19 @@
 				{
 					"name": "mainTodo",
 					"kind": "relatedEntity",
+					"matchColumn": "mainTodos,subTodos",
 					"scope": "public",
 					"type": "Todo",
-					"path": "Todo",
-					"matchColumn": "mainTodos, subTodos"
+					"path": "Todo"
 				},
 				{
 					"name": "SubTodos",
 					"kind": "relatedEntities",
+					"matchColumn": "mainTodo",
 					"scope": "public",
 					"type": "Todos",
 					"reversePath": true,
-					"path": "mainTodo",
-					"matchColumn": "mainTodo"
+					"path": "mainTodo"
 				},
 				{
 					"name": "assignedTo",
@@ -213,10 +236,10 @@
 				},
 				{
 					"name": "type",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"path": "TodoType",
 					"type": "TodoType",
-					"kind": "relatedEntity"
+					"path": "TodoType"
 				}
 			],
 			"events": [
@@ -427,27 +450,6 @@
 					"from": "$mainModel.UserTodoAssign.entityMethods.getTodos",
 					"allowedOnHTTPGET": false,
 					"userDefined": true
-				}
-			]
-		},
-		{
-			"collectionName": "TodoTypes",
-			"className": "TodoType",
-			"extends": "Choice",
-			"attributes": [
-				{
-					"name": "todosTyped",
-					"scope": "public",
-					"reversePath": true,
-					"path": "type",
-					"type": "Todos",
-					"kind": "relatedEntities",
-					"matchColumn": "todos"
-				}
-			],
-			"restrictingQuery": [
-				{
-					"queryStatement": "choiceCategory = 'TodoType'"
 				}
 			]
 		}

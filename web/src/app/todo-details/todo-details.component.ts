@@ -40,8 +40,11 @@ export class TodoDetailsComponent implements OnInit {
     this.route.params.subscribe(async p => {
       const Todo = await this.todoService.getClass();
       // const todoexpanded = await Todo.find(p.id, {expand: 'users'}); // Expand does not work
-      this.current = await Todo.find(p.id, {select: 'users, mainTodo, type'});
-
+      this.current = await Todo.find(p.id, {select: 'users, mainTodo, type'}); //, mainTodo, type'});
+  // Affect the value for the type of todo 
+    if(this.current && this.current.type){
+      this.selectedTypeTodo = this.types.find(t => t._key === this.current.type._key);
+    }
   // Contruct list of todos to select for add as main todo
       const todos1 = await this.todoService.getAll({
         pageSize: 20,
@@ -65,7 +68,7 @@ export class TodoDetailsComponent implements OnInit {
 
   async save(todo){
     await todo.save();
-    this.router.navigate(["/todos"]);
+  //  this.router.navigate(["/todos"]);
   }
 
   async remove(todo){
@@ -82,11 +85,10 @@ export class TodoDetailsComponent implements OnInit {
     this.editable= false;
   }
 
-  async affect(todoSub: ITodo, todoMain: ITodo[]){
-    // debugger;
-    this.current.subTodos= todoMain;
-    this.save(todoSub);
-  }
+  // async affect(todoSub: ITodo, todoMain: ITodo[]){
+  //   this.current.subTodos= todoMain;
+  //   this.save(todoSub);
+  // }
 
   async makeMain(t: ITodo, current: ITodo) {
     // To avoid the possibility to be its own main
