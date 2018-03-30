@@ -1,1 +1,9 @@
-for(let i = 4; i<8; i += 1){  new ds.Todo({    description: (i+1)+' Todo...',    done: false  }).save();}  
+
+
+for(let i = 0; i<50; i += 1){
+  new ds.Todo({
+    description: (i+1)+' Todo...',
+    done: false
+  }).save();
+}
+  
