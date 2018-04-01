@@ -68,7 +68,8 @@ export class TodoDetailsComponent implements OnInit {
 
   async save(todo){
     await todo.save();
-  //  this.router.navigate(["/todos"]);
+    this.editable= false;
+  //this.router.navigate(["/todos"]);
   }
 
   async remove(todo){

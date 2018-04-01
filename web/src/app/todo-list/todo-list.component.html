@@ -40,6 +40,17 @@
             </mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="chips">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Chips test</mat-header-cell>
+            <mat-cell *matCellDef="let one">
+              <mat-chip-list selectable= "true">
+                <mat-chip *ngFor="let chip of availableColors" selectable= "true" removable= "true" selected="true" [color]="chip.color">
+                  {{chip.name}}
+                </mat-chip>
+              </mat-chip-list>
+            </mat-cell>
+          </ng-container>
+
           <ng-container matColumnDef="tools">
             <mat-header-cell *matHeaderCellDef> Tools </mat-header-cell>
 

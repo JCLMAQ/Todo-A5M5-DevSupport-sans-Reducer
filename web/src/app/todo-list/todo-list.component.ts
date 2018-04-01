@@ -17,7 +17,8 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent{
-  cols: string[] = ['ID', 'description', 'done', 'tools'];
+  // cols: string[] = ['ID', 'description', 'done', 'chips','tools'];
+  cols: string[] = ['description', 'done', 'chips','tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   currentTodo: ITodo;
   countTodo: number = 0;
@@ -30,6 +31,16 @@ export class TodoListComponent{
  
   editable: boolean = false;
   isOpenSidePanel: Boolean = false;
+// Chips test
+  color: string;
+
+  availableColors = [
+    { name: 'none', color: '' },
+    { name: 'Primary', color: 'primary' },
+    { name: 'Accent', color: 'accent' },
+    { name: 'Warn', color: 'warn' }
+  ];
+// End fo chips test
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
