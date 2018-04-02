@@ -8,10 +8,13 @@ import { MaterialModule } from './shared/material.module';
 import { APP_ROUTING, APP_ROUTING_PROVIDERS } from "./app.routes";
 
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { UsersComponent } from './users/users.component';
+
+import { LoginComponent } from './login/login.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 
@@ -28,6 +31,7 @@ import {UserService} from './shared/user.service';
     UsersComponent,
     HomeComponent,
     ConfirmComponent,
+    LoginComponent,
     UsersComponent
   ],
   imports: [
