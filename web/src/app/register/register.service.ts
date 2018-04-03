@@ -11,7 +11,7 @@ export class RegisterService {
 
   register(body): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.wakandaService.catalog().then(ds => {
+     this.wakandaService.catalog.then(ds => {
         ds.User.addUser(body).then(res => {
           resolve(res);
         }).catch((error) => {

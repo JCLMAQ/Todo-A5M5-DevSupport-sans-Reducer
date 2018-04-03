@@ -15,6 +15,7 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { UsersComponent } from './users/users.component';
 
 import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from "./register/register.component";
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 
@@ -22,6 +23,7 @@ import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
 import {UserService} from './shared/user.service';
+import { RegisterService} from "./register/register.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {UserService} from './shared/user.service';
     HomeComponent,
     ConfirmComponent,
     LoginComponent,
+    RegisterComponent,
     UsersComponent
   ],
   imports: [
@@ -47,7 +50,8 @@ import {UserService} from './shared/user.service';
     APP_ROUTING_PROVIDERS,
     WakandaService,
     TodoService, 
-    UserService
+    UserService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

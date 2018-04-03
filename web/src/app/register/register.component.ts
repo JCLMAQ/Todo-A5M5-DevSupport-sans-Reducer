@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
 
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
     selector: 'app-register',
     templateUrl: 'register.component.html'
 })
-export class registerComponent {
+export class RegisterComponent implements OnInit{
   private errorMsg: string;
   private user: any = {role: "user"};
 
@@ -14,6 +14,9 @@ export class registerComponent {
     private registerService: RegisterService,
     private router: Router) {
 
+  }
+  
+  ngOnInit() {
   }
 
   register() {
