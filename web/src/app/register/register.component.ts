@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
-    templateUrl: 'register.component.html'
+    templateUrl: 'register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
   private errorMsg: string;
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit{
     private router: Router) {
 
   }
-  
+
   ngOnInit() {
   }
 
@@ -30,5 +31,7 @@ export class RegisterComponent implements OnInit{
       this.errorMsg = errorMessage;
     });
   }
-
+ login(){
+  this.router.navigate(['login']);
+ }
 }
