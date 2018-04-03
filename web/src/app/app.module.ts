@@ -8,10 +8,14 @@ import { MaterialModule } from './shared/material.module';
 import { APP_ROUTING, APP_ROUTING_PROVIDERS } from "./app.routes";
 
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { UsersComponent } from './users/users.component';
+
+import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from "./register/register.component";
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 
@@ -19,6 +23,7 @@ import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
 import {UserService} from './shared/user.service';
+import { RegisterService} from "./register/register.service";
 
 @NgModule({
   declarations: [
@@ -28,6 +33,8 @@ import {UserService} from './shared/user.service';
     UsersComponent,
     HomeComponent,
     ConfirmComponent,
+    LoginComponent,
+    RegisterComponent,
     UsersComponent
   ],
   imports: [
@@ -43,7 +50,8 @@ import {UserService} from './shared/user.service';
     APP_ROUTING_PROVIDERS,
     WakandaService,
     TodoService, 
-    UserService
+    UserService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

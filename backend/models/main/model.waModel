@@ -20,7 +20,7 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 892,
+						"X": 895,
 						"Y": 41
 					}
 				}
@@ -84,7 +84,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 200,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js"
@@ -453,5 +453,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

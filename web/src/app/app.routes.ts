@@ -2,6 +2,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { ModuleWithProviders, Provider } from "@angular/core";
 
 import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import { IsAuthenticatedGuard } from "./shared/guards/is-authenticated.guard";
+
 import { TodoDetailsComponent } from "./todo-details/todo-details.component";
 import { TodoListComponent } from "./todo-list/todo-list.component";
 import { UsersComponent } from "./users/users.component";
@@ -9,6 +13,9 @@ import { UsersComponent } from "./users/users.component";
 const APP_ROUTES: Routes = [{
   path: "",
   component: HomeComponent
+},{
+  path: "login",
+  component: LoginComponent
 }, {
   path: "todos",
   component: TodoListComponent
@@ -24,6 +31,9 @@ const APP_ROUTES: Routes = [{
 }, {
   path: "users",
   component: UsersComponent
+},{
+  path: "register",
+  component: RegisterComponent
 }];
 
 export const APP_ROUTING_PROVIDERS: Provider[] = [];

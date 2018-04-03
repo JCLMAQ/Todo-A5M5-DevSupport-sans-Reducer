@@ -21,6 +21,9 @@ export class WakandaService {
     return this.ds;
   }
 
+  get directory(){
+    return client.directory;
+  }
 
   get user(): Promise<ICurrentUser> {
     if (!this.current) {

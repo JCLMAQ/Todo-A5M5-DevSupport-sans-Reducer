@@ -1,0 +1,30 @@
+
+<form class="register-container">
+    <h3>Register to the Todo</h3>
+    <div *ngIf="errorMsg" class="alert alert-danger alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            {{errorMsg}}
+        </div>
+    <mat-form-field>
+      <input name="username" matInput [(ngModel)]="user.fullname" placeholder="Username">
+    </mat-form-field>
+    <mat-form-field>
+        <input name="email" matInput [(ngModel)]="user.email" placeholder="email">
+      </mat-form-field>
+    <mat-form-field>
+      <input name="password" matInput [(ngModel)]="user.password" type="password" placeholder="Password">
+    </mat-form-field>
+    <mat-form-field>
+        <input name="verifypassword" matInput [(ngModel)]="user.verifyPassword" type="password" placeholder=" Verify Password">
+      </mat-form-field>
+      <div class="form-group">
+            <div class="checkbox i-checks"><label> <input name="check" [(ngModel)]="check" type="checkbox" required><i></i> Agree the terms and policy </label></div>
+        </div>
+    <button mat-button type="submit" (click)="register()">
+      Register
+    </button>
+    <p><small>Already have an account?</small></p>
+    <button mat-button type="submit" (click)="login()">
+        Login
+    </button>
+  </form>
