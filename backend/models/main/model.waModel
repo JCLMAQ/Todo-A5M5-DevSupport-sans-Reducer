@@ -18,7 +18,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
 						"X": 895,
 						"Y": 41
@@ -83,11 +83,12 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceLeft": 522,
+			"workspaceTop": 10,
 			"lastScriptLocation": {
 				"User": {
-					"method": "User/User-methods.js"
+					"method": "User/User-methods.js",
+					"events": "User/User-events.js"
 				},
 				"Todo": {
 					"method": "Todo/Todo-methods.js",
@@ -361,13 +362,32 @@
 					"name": "email",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"type": "string",
+					"events": [
+						{
+							"kind": "validate",
+							"from": "$mainModel.User.email.events.validate",
+							"userDefined": true
+						}
+					]
 				},
 				{
 					"name": "password",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"type": "string",
+					"events": [
+						{
+							"kind": "save",
+							"from": "$mainModel.User.password.events.save",
+							"userDefined": true
+						},
+						{
+							"kind": "set",
+							"from": "$mainModel.User.password.events.set",
+							"userDefined": true
+						}
+					]
 				},
 				{
 					"name": "HA1Key",
@@ -453,6 +473,5 @@
 				}
 			]
 		}
-	],
-	"type": []
+	]
 }
