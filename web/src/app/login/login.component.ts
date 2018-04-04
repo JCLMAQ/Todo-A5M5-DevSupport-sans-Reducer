@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login(username: string, password: string) {
+    debugger;
     const isOK = await this.wakanda.login(username, password);
     if (isOK) {
       this.router.navigate(['/']);
@@ -33,4 +34,5 @@ export class LoginComponent implements OnInit {
   register(){
     this.router.navigate(['register']);
   }
+  
 }

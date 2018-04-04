@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from "./register/register.component";
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 
+import { SignupComponent } from './signup/signup.component';
 
 
 import { WakandaService } from "./shared/wakanda.service";
@@ -35,7 +36,8 @@ import { RegisterService} from "./register/register.service";
     ConfirmComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
