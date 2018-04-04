@@ -24,6 +24,7 @@ import { WakandaService } from "./shared/wakanda.service";
 import { TodoService } from './shared/todo.service';
 import {UserService} from './shared/user.service';
 import { RegisterService} from "./register/register.service";
+import { AuthenticationService} from './shared/authentication.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { RegisterService} from "./register/register.service";
     WakandaService,
     TodoService, 
     UserService,
-    RegisterService
+    RegisterService,
+    AuthenticationService
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,3 @@
-ds.User.all();//ds.User.remove();
+ds.User.all();
+// ds.User.remove();
+

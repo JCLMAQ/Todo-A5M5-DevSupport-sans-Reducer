@@ -3,4 +3,5 @@
  * You can use it  to initialize your application, define HTTP pattern handlers etc..
  */
  
- directory.setLoginManager("login/login" , "Admin");
+ directory.setLoginManager("login/login-manager" , "administrators");
+//  directory.setLoginManager("login/login" , "Admin");

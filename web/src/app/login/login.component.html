@@ -1,13 +1,13 @@
 <form class="login-container">
   <mat-form-field>
-    <input name="username" require matInput [(ngModel)]="username" placeholder="Your email">
+    <input name="logon" type="emeil" required="" matInput [(ngModel)]="user.logon" placeholder="Your email">
   </mat-form-field>
 
   <mat-form-field>
-    <input name="password" matInput [(ngModel)]="password" type="password" placeholder="Password">
+    <input name="password" required="" matInput [(ngModel)]="user.password" type="password" placeholder="Password">
   </mat-form-field>
 
-  <button mat-button type="submit" (click)="login(username, password)">
+  <button mat-button type="submit" (click)="login()">
     Login
   </button>
   <button mat-button type="submit" (click)="register()">
