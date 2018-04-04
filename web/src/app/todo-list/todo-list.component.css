@@ -11,25 +11,39 @@ mat-row{
   text-decoration: line-through;
 }
 
+.maincardspace {
+  min-height: 800px;
+}
 
+.firstcardspace {
+  min-height: 700px;
+}
 mat-card-title,
 mat-input-container{
   text-align: center;
 }
 
-
 mat-card-title>mat-input-container{
-  width: 450px;
+  width: 600px;
 }
 
 .app-sidenav-filler {
   flex: 1 1 auto;
 }
 mat-drawer {
-  width: 500px;
-  height: 600px;
+  min-width: 500px;
+  min-height: 600px;
 }
 
-.mat-mini-pos {
+.content-Card {
+ min-height: 800px;
+}
 
+.userlist {
+  min-height: 400px;
+ }
+
+ mat-chip {
+  max-width: 100px;
+  max-height: 20px;
 }

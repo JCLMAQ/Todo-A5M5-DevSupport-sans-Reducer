@@ -1,0 +1,11 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  .register-container > * {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
