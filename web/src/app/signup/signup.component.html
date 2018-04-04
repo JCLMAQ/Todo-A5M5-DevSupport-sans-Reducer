@@ -1,4 +1,4 @@
-<form #form="ngForm" class="register-container" (ngSubmit)="onSignup.emit(user)">
+<form #form="ngForm" class="signup-container" (ngSubmit)="onSignup.emit(user)">
   <div *ngIf="errorMsg" class="alert alert-danger alert-dismissable">
     <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
     {{errorMsg}}

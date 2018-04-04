@@ -4,4 +4,4 @@
  */
  
 // directory.setLoginManager("login/login" , "Admin");
- directory.setLoginManager("login/login-manager" , "Admin");
+ directory.setLoginManager("login/login-manager" , "administrators");

@@ -39,20 +39,21 @@ export class WakandaService {
       .catch(() => { });
   }
 
-  // async login(username: string, password: string): Promise<boolean> {
-  //   let isOK: boolean = false;
-  //   try {
-  //     isOK = await client.directory.login(username, password);
-  //   } catch (e) {
-  //     isOK = false;
-  //   }
+  async login(username: string, password: string): Promise<boolean> {
+    let isOK: boolean = false;
 
-  //   if (isOK) {
-  //     this.refreshUser();
-  //   }
+    try {
+      isOK = await client.directory.login(username, password);
+    } catch (e) {
+      isOK = false;
+    }
 
-  //   return isOK;
-  // }
+    if (isOK) {
+      this.refreshUser();
+    }
+
+    return isOK;
+  }
 
   async logout(): Promise<boolean> {
     let isOK: boolean = false;
