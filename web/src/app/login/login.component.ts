@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public username: string = "username";
-  public password: string = "password";
+  // public username: string = "username";
+  // public password: string = "password";
+  public username: string ;
+  public password: string ;
 
   constructor(
     private wakandaService: WakandaService,

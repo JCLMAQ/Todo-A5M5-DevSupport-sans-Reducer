@@ -8,3 +8,15 @@
   width: 400px;
   margin: 0 auto;
 }
+
+.card-login {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  margin-top: 20px;
+  }
+
+ mat-card-title {
+  text-align: center;
+}

@@ -41,7 +41,6 @@ export class WakandaService {
 
   async login(username: string, password: string): Promise<boolean> {
     let isOK: boolean = false;
-
     try {
       isOK = await client.directory.login(username, password);
     } catch (e) {

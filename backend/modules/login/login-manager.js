@@ -1,6 +1,5 @@
 exports.login = function(username, password) {
   const u = ds.User.find('email === :1', username);
-
   if (!u || u.password !== password) {
     return false;
     return {
