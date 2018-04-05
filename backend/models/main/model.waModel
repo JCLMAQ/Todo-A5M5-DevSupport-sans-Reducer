@@ -88,7 +88,8 @@
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
-					"events": "User/User-events.js"
+					"events": "User/User-events.js",
+					"computed": "User/User-events.js"
 				},
 				"Todo": {
 					"method": "Todo/Todo-methods.js",
@@ -373,18 +374,26 @@
 				},
 				{
 					"name": "password",
-					"kind": "storage",
+					"kind": "calculated",
 					"scope": "public",
 					"type": "string",
+					"scriptKind": "javascript",
 					"events": [
-						{
-							"kind": "save",
-							"from": "$mainModel.User.password.events.save",
-							"userDefined": true
-						},
 						{
 							"kind": "set",
 							"from": "$mainModel.User.password.events.set",
+							"userDefined": true
+						}
+					],
+					"onGet": [
+						{
+							"from": "$mainModel.User.password.onGet",
+							"userDefined": true
+						}
+					],
+					"onSet": [
+						{
+							"from": "$mainModel.User.password.onSet",
 							"userDefined": true
 						}
 					]

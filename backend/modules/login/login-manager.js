@@ -1,6 +1,12 @@
 exports.login = function(username, password) {
+   ha1keyCode = "";
   const u = ds.User.find('email === :1', username);
-  if (!u || u.password !== password) {
+  if(u){ 
+  	ha1keyCode = directory.computeHA1(u.ID,password);
+  }
+  
+  // if (!u || u.password !== password) { // login sans Hash
+  	 if (!u || u.HA1Key !== ha1keyCode) {
     return false;
     return {
       // Error code returned
