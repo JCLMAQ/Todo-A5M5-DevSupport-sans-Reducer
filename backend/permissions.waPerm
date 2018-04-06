@@ -1,1 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><permissions></permissions>
+﻿<?xml version="1.0" encoding="UTF-8"?><permissions>
+	<allow action="read" groupName="todoUsers" groupID="0A2965001CCBE44583EF6E8E46946417" resource="Model.User" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="create" groupName="todoUsers" groupID="0A2965001CCBE44583EF6E8E46946417" resource="Model.User" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="update" groupName="todoUsers" groupID="0A2965001CCBE44583EF6E8E46946417" resource="Model.User" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="remove" groupName="todoUsers" groupID="0A2965001CCBE44583EF6E8E46946417" resource="Model.User" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="describe" groupName="todoUsers" groupID="0A2965001CCBE44583EF6E8E46946417" resource="Model.User" temporaryForcePermissions="false" type="dataClass"/>
+</permissions>

@@ -18,7 +18,7 @@
 				"panelColor": "#eee",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": false,
+					"pathVisible": true,
 					"position": {
 						"X": 895,
 						"Y": 41
@@ -83,8 +83,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 522,
-			"workspaceTop": 10,
+			"workspaceLeft": 2,
+			"workspaceTop": 0,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -348,6 +348,7 @@
 			"className": "User",
 			"collectionName": "Users",
 			"scope": "public",
+			"publishAsJSGlobal": false,
 			"attributes": [
 				{
 					"name": "ID",
@@ -427,6 +428,24 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
+				},
+				{
+					"name": "userID",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			],
+			"events": [
+				{
+					"kind": "save",
+					"from": "$mainModel.User.events.save",
+					"userDefined": true
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.User.events.restrict",
+					"userDefined": true
 				}
 			],
 			"methods": [

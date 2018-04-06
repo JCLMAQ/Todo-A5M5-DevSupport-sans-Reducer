@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><directory>
-	<group ID="01000000000000000000000000000000" name="Admin">	</group>
-	<group ID="8B16974509919146B1B2F0326B230A81" name="users">
-		<include group="Admin" groupID="01000000000000000000000000000000"/>
-		<include group="administrators" groupID="E89C3316A941284F853C49AE54581E52"/>
+	<group ID="01000000000000000000000000000000" name="Admin">
+		<include user="admin" ID="B1F5EAF9E1C41A4FA2BC3FEA11AA9B0F"/>
 	</group>
-	<group ID="E89C3316A941284F853C49AE54581E52" name="administrators"/>
-	<user ID="4692405828FA4AF8B47E60D8B4A62AFD" name="jcm" fullName="JCM" password="b883930011b8525ab5e37d83466696a3"/>
+	<group ID="0A2965001CCBE44583EF6E8E46946417" name="todoUsers">
+		<include user="jcm" userID="8EBF75C294F3284C8075A46AEB39E4EA"/>
+		<include group="Admin" groupID="01000000000000000000000000000000"/>
+		<include group="administrators" groupID="73CF50954F0C8A4D9D9378600B85411E"/>
+	</group>
+	<group ID="73CF50954F0C8A4D9D9378600B85411E" name="administrators">
+		<include user="admin" ID="B1F5EAF9E1C41A4FA2BC3FEA11AA9B0F"/>
+	</group>
+	<user ID="B1F5EAF9E1C41A4FA2BC3FEA11AA9B0F" name="admin" fullName="Admin"/>
+	<user ID="8EBF75C294F3284C8075A46AEB39E4EA" name="jcm" fullName="JCM" password="b883930011b8525ab5e37d83466696a3"/>
 </directory>
