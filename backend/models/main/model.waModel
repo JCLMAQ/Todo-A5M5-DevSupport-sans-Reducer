@@ -83,8 +83,8 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 2,
-			"workspaceTop": 0,
+			"workspaceLeft": 453,
+			"workspaceTop": 4,
 			"lastScriptLocation": {
 				"User": {
 					"method": "User/User-methods.js",
@@ -242,6 +242,12 @@
 					"scope": "public",
 					"type": "TodoType",
 					"path": "TodoType"
+				},
+				{
+					"name": "userID",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
 				}
 			],
 			"events": [
@@ -428,12 +434,6 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
-				},
-				{
-					"name": "userID",
-					"kind": "storage",
-					"scope": "public",
-					"type": "string"
 				}
 			],
 			"events": [
@@ -501,5 +501,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

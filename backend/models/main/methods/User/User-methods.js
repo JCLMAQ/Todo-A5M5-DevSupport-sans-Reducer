@@ -3,7 +3,7 @@ model.User.methods.addUser = function(signUpData) {
 	// Add a new user account.
 	var passwordRegexStr, isValid,
 		newUser;
-
+debugger;
 		//Check if the password is at least 7 characters and one digit.
 		if (signUpData.password !== null) {
 			passwordRegexStr = /[0-9a-zA-Z]{5,}/;
