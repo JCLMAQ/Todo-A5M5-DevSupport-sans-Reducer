@@ -1,12 +1,11 @@
-exports.login = function(username, password) {
-   ha1keyCode = "";
+export function login(username, password) {
+  ha1keyCode = "";
   const u = ds.User.find('email === :1', username);
-  if(u){ 
-  	ha1keyCode = directory.computeHA1(u.ID,password);
+  if (u) {
+    ha1keyCode = directory.computeHA1(u.ID, password);
   }
-  
   // if (!u || u.password !== password) { // login sans Hash
-  	 if (!u || u.HA1Key !== ha1keyCode) {
+  if (!u || u.HA1Key !== ha1keyCode) {
     return false;
     return {
       // Error code returned
@@ -15,9 +14,7 @@ exports.login = function(username, password) {
       errorMessage: 'Authentication failed. Login or Password maybe wrong.'
     };
   }
-
-  const roles = u.role? u.role.split(','): [];
-
+  const roles = u.role ? u.role.split(',') : [];
   return {
     ID: u.getKey(),
     name: u.email,
