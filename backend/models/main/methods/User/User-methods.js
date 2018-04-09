@@ -3,7 +3,7 @@ model.User.methods.addUser = function(signUpData) {
 	// Add a new user account.
 	var passwordRegexStr, isValid,
 		newUser;
-debugger;
+
 		//Check if the password is at least 7 characters and one digit.
 		if (signUpData.password !== null) {
 			passwordRegexStr = /[0-9a-zA-Z]{5,}/;
@@ -33,8 +33,8 @@ debugger;
 		newUser =  ds.User.createEntity();
        	newUser.fullName = signUpData.fullName;  
        	newUser.email = signUpData.email;    
-       	newUser.password = signUpData.password;
-       	newUser.HA1Key = directory.computeHA1(newUser.ID, signUpData.password);
+   //    	newUser.password = signUpData.password;
+      // 	newUser.HA1Key = directory.computeHA1(newUser.ID, signUpData.password);
        	
        	//*** Best Pratice ***
        	//Save the new User in a Try Catch block and put your validation code for the email address in the User 

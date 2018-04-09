@@ -14,7 +14,12 @@ export class WakandaService {
   private ds: Promise<any>;
   private current: Promise<ICurrentUser>;
 
+  constructor() {
+ 
+  }
+
  get catalog(): Promise<any>{
+   debugger;
     if(!this.ds){
       this.ds = client.getCatalog();
     }
@@ -69,8 +74,6 @@ export class WakandaService {
 
     return isOK;
   }
-  constructor() {
-
-  }
+  
 
 }

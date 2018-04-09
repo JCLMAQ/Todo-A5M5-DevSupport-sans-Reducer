@@ -25,7 +25,6 @@ export class RegisterComponent {
   }
 
   async register(user) {
-    debugger;
     
     try {
       const res = await this.registerService.register(user);
