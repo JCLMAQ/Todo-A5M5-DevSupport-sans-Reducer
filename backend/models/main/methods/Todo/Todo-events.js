@@ -6,5 +6,5 @@ model.Todo.events.restrict = function(event) {
 	return ds.Todo.query("userID == 1", directory.currentUser.ID);
 };
 model.Todo.events.save = function(event) {
-	this.userID = directory.current.User.ID;
+	this.userID = directory.currentUser.ID;
 };

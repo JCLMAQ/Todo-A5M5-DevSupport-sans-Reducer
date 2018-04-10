@@ -34,8 +34,8 @@ model.User.methods.addUser = function(signUpData) {
        	newUser.fullName = signUpData.fullName;  
        	newUser.email = signUpData.email;    
    //    	newUser.password = signUpData.password;
-      // 	newUser.HA1Key = directory.computeHA1(newUser.ID, signUpData.password);
-       	
+        newUser.HA1Key = directory.computeHA1(newUser.ID, signUpData.password);
+       	newUser.groups = "todoUsers";
        	//*** Best Pratice ***
        	//Save the new User in a Try Catch block and put your validation code for the email address in the User 
        	// onValidate() method (see model.User.events.onValidate below). This is better than doing validation checks in this 

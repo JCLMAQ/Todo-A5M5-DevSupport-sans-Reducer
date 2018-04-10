@@ -19,7 +19,6 @@ export class WakandaService {
   }
 
  get catalog(): Promise<any>{
-   debugger;
     if(!this.ds){
       this.ds = client.getCatalog();
     }
