@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><directory>
 	<group ID="01000000000000000000000000000000" name="Admin">	</group>
 	<group ID="E89C3316A941284F853C49AE54581E52" name="administrators"/>
+	<group ID="C85B13A41E093F41AC56E23FDB2F813E" name="userTodos"/>
 	<user ID="4692405828FA4AF8B47E60D8B4A62AFD" name="jcm" fullName="JCM" password="b883930011b8525ab5e37d83466696a3"/>
 </directory>
