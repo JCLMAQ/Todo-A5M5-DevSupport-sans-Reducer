@@ -98,7 +98,6 @@ export class TodoListComponent{
   }
 
   async save(todo){
-    debugger;
     const isSaved = await todo.save();
     this.editable = false;
     if (isSaved) {

@@ -258,18 +258,8 @@
 			],
 			"events": [
 				{
-					"kind": "save",
-					"from": "$mainModel.Todo.events.save",
-					"userDefined": true
-				},
-				{
 					"kind": "init",
 					"from": "$mainModel.Todo.events.init"
-				},
-				{
-					"kind": "restrict",
-					"from": "$mainModel.Todo.events.restrict",
-					"userDefined": true
 				}
 			],
 			"methods": [
@@ -417,7 +407,7 @@
 				{
 					"name": "HA1Key",
 					"kind": "storage",
-					"scope": "public",
+					"scope": "publicOnServer",
 					"type": "string"
 				},
 				{
@@ -498,5 +488,6 @@
 				}
 			]
 		}
-	]
+	],
+	"type": []
 }

@@ -17,7 +17,7 @@ import { UserService } from '../shared/user.service';
 export class TodoDetailsComponent implements OnInit {
   editable: boolean = false;
   current: ITodo ;
-  todoCols1: string[] = ['description', 'done'];
+  todoCols1: string[] = ['description', 'done', 'public'];
   todos1: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   users:IUser[];
   types: ITodoType[] = [];
@@ -62,7 +62,7 @@ export class TodoDetailsComponent implements OnInit {
     this.route.data.subscribe(d => {
       this.editable = d.editable;
       // Let allow edition or not, withdraw the colomn 'tools' if not editable
-      this.todoCols1 = this.editable? ['description', 'done', 'tools']: ['description', 'done'];
+      this.todoCols1 = this.editable? ['description', 'done', 'public', 'tools']: ['description', 'done' , 'public'];
     });
   }
 

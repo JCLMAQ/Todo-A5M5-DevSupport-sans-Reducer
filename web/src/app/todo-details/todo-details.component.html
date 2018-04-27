@@ -11,6 +11,7 @@
                           [disabled]="!editable">
                 </mat-form-field>
                 <mat-checkbox [(ngModel)]="current.done" [disabled]="!editable"></mat-checkbox>
+                <mat-checkbox [(ngModel)]="current.public" [disabled]="!editable"></mat-checkbox>
   <br />  
                 <mat-form-field *ngIf="current.mainTodo">
                   <input  matInput placeholder="Main Todo"

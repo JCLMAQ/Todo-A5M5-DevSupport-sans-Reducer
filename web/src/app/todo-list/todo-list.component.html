@@ -40,6 +40,13 @@
             </mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="public">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Public</mat-header-cell>
+            <mat-cell *matCellDef="let one">
+              <mat-checkbox [checked]="one.public" [disabled]="true"></mat-checkbox>
+            </mat-cell>
+          </ng-container>
+
           <ng-container matColumnDef="chips">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Chips test</mat-header-cell>
             <mat-cell *matCellDef="let one">
@@ -92,6 +99,7 @@
               <input matInput placeholder="Description" type="text" [(ngModel)]="currentTodo.description" [disabled]="!editable">
             </mat-form-field>
             <mat-checkbox [(ngModel)]="currentTodo.done" [disabled]="!editable"></mat-checkbox>
+            <mat-checkbox [(ngModel)]="currentTodo.public" [disabled]="!editable"></mat-checkbox>
           <!-- End of the detail form -->
         
          <!--Start of the users list -->
