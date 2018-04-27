@@ -1,6 +1,6 @@
 
 //Wakanda Login Listener
-export function login(username, password) {
+exports.login= function login(username, password) {
   ha1keyCode = "";
   const u = ds.User.find('email === :1', username);
   if (u) {
