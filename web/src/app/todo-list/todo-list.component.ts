@@ -18,7 +18,7 @@ import { MatDialog } from '@angular/material';
 })
 export class TodoListComponent{
   // cols: string[] = ['ID', 'description', 'done', 'chips','tools'];
-  cols: string[] = ['description', 'done', 'chips','tools'];
+  cols: string[] = ['description', 'done', 'public', 'chips','tools'];
   todos: MatTableDataSource<ITodo> = new MatTableDataSource<ITodo>([]);
   currentTodo: ITodo;
   countTodo: number = 0;

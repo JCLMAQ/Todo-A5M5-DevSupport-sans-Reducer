@@ -66,6 +66,12 @@
                 <mat-checkbox [checked]="one.done" [disabled]="true"></mat-checkbox>
               </mat-cell>
             </ng-container>
+            <ng-container matColumnDef="public">
+              <mat-header-cell *matHeaderCellDef>Done</mat-header-cell>
+              <mat-cell *matCellDef="let one">
+                <mat-checkbox [checked]="one.publice" [disabled]="true"></mat-checkbox>
+              </mat-cell>
+            </ng-container>
             <ng-container matColumnDef="description">
               <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
               <mat-cell *matCellDef="let one">{{one.description}}</mat-cell>
