@@ -27,6 +27,7 @@ import {UserService} from './shared/user.service';
 import { RegisterService} from "./register/register.service";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { RegisterService} from "./register/register.service";
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+
     APP_ROUTING
   ],
   entryComponents: [ConfirmComponent],
