@@ -19,11 +19,11 @@ mat-row{
   min-height: 700px;
 }
 mat-card-title,
-mat-input-container{
+mat-form-field{
   text-align: center;
 }
 
-mat-card-title>mat-input-container{
+mat-card-title>mat-form-field{
   width: 600px;
 }
 
